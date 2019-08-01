@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+<title>Recommendations</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="recStyle.css"¨>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+	 <div class="hero-image">
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+  <a href="#">ABOUT</a>
+  <a href="#">EDUCATION</a>
+  <a href="#">EXPERIENCE</a>
+  <a href='/recommendations'>RECOMMENDATIONS</a>
+  <a href="#">CONTACT</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">menu</button>
+  </div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "325px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+<div>
+    <div class="hero-text">
+      <h1 style="font-size:50px">Recommendations</h1>
+      </br><h5>Have you worked with me in the past? Leave a comment about my abilities or check out recommendations from other professionals!</h5>
+    </div>
+  </div>
+</div>
+
+<div class="break">
+  <h5>    __    </h5>
+</div>
+
+	<div class="container">
+  <div class="row">
+  	<div th:each="recommendation : *{recommendations}">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+	  <h1 th:text="${recommendation.author}"></h1>
+	</div>
+	<div class="panel-body">
+	  <strong><p th:text="${recommendation.relation}"/></strong>
+	  <p th:text="${recommendation.recEntry}"/>
+	</div>
+	<div class="panel-footer">
+	
+	
+	</div>
+	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<center>
+ 		<a th:href="@{/}"><button class="btn btn-outline-secondary">Home Page</button></a>
+		<a th:href="@{/new}"><button class="btn btn-outline-secondary">Submit a Recommendation</button></a>
+	</center>
+
+</body>
+</html>

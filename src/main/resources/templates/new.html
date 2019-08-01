@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>New Recommendation</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link type="text/css" rel="stylesheet" href="recStyle.css"¨>
+
+</head>
+<body>
+	 <div class="hero-image">
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+  <a href="#">ABOUT</a>
+  <a href="#">EDUCATION</a>
+  <a href="#">EXPERIENCE</a>
+  <a href='/recommendations'>RECOMMENDATIONS</a>
+  <a href="#">CONTACT</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">menu</button>
+  </div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "325px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+<div>
+    <div class="hero-text">
+      <h1 style="font-size:50px">New Recommendation</h1>
+      </div>
+  </div>
+</div>
+
+<div class="break">
+  <h5>    __    </h5>
+</div>
+
+</br>
+
+<center>
+
+<h5>If you've worked with me in the past, let me know how it went! Feel free to give me constructive criticism, but please keep your language professional. </h5>
+
+<div class="recForm">
+
+		<h1 th:text="${pageTitle}"></h1>
+    <form method="post" th:action="${givenAction}">
+        <div>
+            <input name="author" type="text" placeholder="Your name..." th:value="${givenAuthor}" />
+        </div>
+        <div>
+            <input name="relation" type="text" placeholder="Your relation to me/job title..." th:value="${givenRelation}" />
+        </div>
+        <div>
+            <textarea name="recEntry" type="text" placeholder="Recommendation..." th:text="${givenContent}"></textarea>
+        </div>
+        <div>
+            <button class="btn btn-outline-secondary" type="submit">Post</button>
+        </div>
+    </form>
+ </center>   
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+	<head>
+	<title>Edit Recommendation</title>
+	</head>
+	<body>
+		
+		<div class="container">
+			<h1>Edit Your Blog Post</h1>
+			<form action="/blog_posts/edit" th:action="@{/blog_posts/edit}" th:object="${blog}" method="post">
+				<input th:type="hidden" name="id" th:field="*{id}" />
+				<div class="form-group">
+					<input type="text" class="form-control" th:field="*{author}" />
+				</div>
+				
+				<div class="form-group">
+					<input type="text" class="form-control" th:field="*{relation}" />
+				</div>
+				
+				<div class="form-group">
+					<input type="text" class ="form-control" th:field="*{recEntry}" />
+				</div>
+		
+				<button class="btn btn-primary">Save</button>
+				<a href="#" th:href="@{/}" class="btn btn-danger" role="button">Cancel</a>
+			</form>
+		</div>
+		
+	</body>
+</html>

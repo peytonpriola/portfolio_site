@@ -33,40 +33,35 @@ public class RecommendationController {
 		return "recommendations";
 	}
 	
-	@GetMapping(value="/new")
-	public String newRecommendation(Model model) {
-		model.addAttribute("givenAction", "/new");
-		model.addAttribute("givenAuthor", "");
-		model.addAttribute("givenRelation", "");
-		model.addAttribute("givenContent","");
+	@GetMapping(value="/recommendations/new")
+	public String newRecommendation(Recommendation recommendation) {
 		return "new";
 	}
+	
+	@PostMapping(value="/recommendations/new")
+	 public String addNewRec(Model model, Recommendation recommendation) {
+		recommendationRepository.save(recommendation);
+		model.addAttribute("recommendation", recommendation);
+		return "redirect:/recommendations";
+	    }
 
 	@GetMapping(value="/recommendations/edit/{id}")
-	public String editRecForm(Model model, @PathVariable Long id) {
+	public String postRecForm(Model model, @PathVariable Long id) {
 		recommendationRepository.findById(id);
 		model.addAttribute("recommendation", recommendationRepository.findById(id));
 		return "edit";
 	}
 	
-	@PostMapping(value="/recommendations/edit")
-	public String updateRec(Model model, Recommendation recommendation) {
+	@PostMapping(value="recommendations/edit")
+	public String postEdit(Model model, Recommendation recommendation) {
 		recommendationRepository.save(recommendation);
-		return "redirect:/";
+		return "redirect:/recommendations";
 	}
 	
-	
-	@PostMapping(value="/new")
-	 public String addNewRec(@RequestParam String author, @RequestParam String relation, @RequestParam String recEntry) {
-		Recommendation newRecommendation = new Recommendation(author, relation, recEntry);
-		recommendationRepository.save(newRecommendation);
-		return "redirect:/recommendations";
-	    }
-	
-	@RequestMapping(value="/recommendations/delete/{id}", method = RequestMethod.DELETE)
-	public String deleteRecWithId(@PathVariable Long id, Recommendation recommendation) {
+	@GetMapping(value="/recommendations/{id}")
+	public String deleteById(@PathVariable Long id) {
 		recommendationRepository.deleteById(id);
-		return "redirect:/";
+		return "redirect:/recommendations";
 	}
 	
 }

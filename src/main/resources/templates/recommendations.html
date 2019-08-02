@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Recommendations</title>
 
@@ -61,7 +62,9 @@ function closeNav() {
 	  <p th:text="${recommendation.recEntry}"/>
 	</div>
 	<div class="panel-footer">
-	
+		<a th:href="@{'/recommendations/edit/{id}'(id=${recommendation.id})}"><button class="btn btn-primary">Edit</button></a>
+		<a th:href="@{'/recommendations/{id}'(id=${recommendation.id})}"><button class="btn btn-primary">Delete</button></a>
+			            
 	
 	</div>
 	</div>
@@ -69,10 +72,10 @@ function closeNav() {
     </div>
   </div>
 </div>
-
+ 
 	<center>
  		<a th:href="@{/}"><button class="btn btn-outline-secondary">Home Page</button></a>
-		<a th:href="@{/new}"><button class="btn btn-outline-secondary">Submit a Recommendation</button></a>
+		<a th:href="@{/recommendations/new}"><button class="btn btn-outline-secondary">Submit a Recommendation</button></a>
 	</center>
 
 </body>

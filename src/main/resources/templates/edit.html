@@ -1,13 +1,17 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit Recommendations</title>
 
-	<head>
-	<title>Edit Recommendation</title>
-	</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="recStyle.css"¨>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 	<body>
 		
 		<div class="container">
-			<h1>Edit Your Blog Post</h1>
-			<form action="/blog_posts/edit" th:action="@{/blog_posts/edit}" th:object="${blog}" method="post">
+			<h1>Edit Your Recommendation</h1>
+			<form action="/recommendations/edit" th:action="@{/recommendations/edit}" th:object="${recommendation}" method="post">
 				<input th:type="hidden" name="id" th:field="*{id}" />
 				<div class="form-group">
 					<input type="text" class="form-control" th:field="*{author}" />
@@ -22,7 +26,7 @@
 				</div>
 		
 				<button class="btn btn-primary">Save</button>
-				<a href="#" th:href="@{/}" class="btn btn-danger" role="button">Cancel</a>
+				<a href="#" th:href="@{/recommendations}" class="btn btn-danger" role="button">Cancel</a>
 			</form>
 		</div>
 		

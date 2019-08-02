@@ -363,15 +363,11 @@ p.footer {
         left: 28px;
     }
 
-	.socialicons {
-	list-style: none;
+
+
+	.contactInfo {
+	background: lightblue;
+	
 	}
 	
-	ul {
-	list-style: none;
-	}
-	
-	li {
-	display: inline;
-	}
 	
